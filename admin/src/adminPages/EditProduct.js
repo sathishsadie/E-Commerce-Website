@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import API_BASE_URL from '../api';
 
 const EditProduct = (props) => {
     let location = useLocation();
@@ -25,7 +26,7 @@ const EditProduct = (props) => {
 
     const editProduct = async () => {
         try {
-            const res = await fetch('/editProduct', {
+            const res = await fetch(`${API_BASE_URL}/editProduct`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

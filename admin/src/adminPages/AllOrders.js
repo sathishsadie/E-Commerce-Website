@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'; // Replace useHistory with useNavigate
 import toast, { Toaster } from 'react-hot-toast';
+import API_BASE_URL from '../api';
 
 const AllOrders = () => {
     const location = useLocation();
@@ -12,7 +13,7 @@ const AllOrders = () => {
     const getAdminData = async () => {
         const token = await localStorage.getItem('token');
         try {
-            const res = await fetch('/getAdminData', {
+            const res = await fetch(`${API_BASE_URL}/getAdminData`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

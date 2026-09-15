@@ -14,6 +14,7 @@ import banner4 from '../images/banner4.webp'; // Example banner images
 import banner5 from '../images/banner5.webp';
 import banner6 from '../images/banner6.webp';
 import banner7 from '../images/banner7.webp';
+import API_BASE_URL from '../api';
 
 
 const Home = () => {
@@ -143,7 +144,7 @@ const Home = () => {
   const getAdminData = async () => {
     const token = await localStorage.getItem('token');
     try {
-      const res = await fetch('/getAdminData', {
+      const res = await fetch(`${API_BASE_URL}/getAdminData`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -168,7 +169,7 @@ const Home = () => {
 
   const getAllProducts = async (id) => {
     try {
-      const res = await fetch('/getAllProducts', {
+      const res = await fetch(`${API_BASE_URL}/getAllProducts`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -185,7 +186,7 @@ const Home = () => {
 
   const getCategories = async () => {
     try {
-      const res = await fetch('/getCategories', {
+      const res = await fetch(`${API_BASE_URL}/getCategories`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../api';
 
 const Register = () => {
   const navigate = useNavigate(); // Use useNavigate instead of useHistory
@@ -20,7 +21,7 @@ const Register = () => {
 
     const { companyName, email, phone, password, cpassword } = user;
 
-    const res = await fetch('/adminRegister', {
+    const res = await fetch(`${API_BASE_URL}/adminRegister`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

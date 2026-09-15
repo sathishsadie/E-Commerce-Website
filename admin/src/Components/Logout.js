@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../api';
 
 const Logout = () => {
     const [show, setShow] = useState(false);
@@ -9,7 +10,7 @@ const Logout = () => {
         const token = await localStorage.getItem('token');
         console.log('===>' + token);
         try {
-            const res = await fetch('/logoutAdmin', {
+            const res = await fetch(`${API_BASE_URL}/logoutUser`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

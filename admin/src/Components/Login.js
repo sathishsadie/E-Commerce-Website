@@ -79,6 +79,7 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar'; // Adjust the path if needed
+import API_BASE_URL from '../api';
 
 const LoginWithNavbar = () => {
   const navigate = useNavigate(); // Use useNavigate instead of useHistory
@@ -89,7 +90,7 @@ const LoginWithNavbar = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const res = await fetch('/adminLogin', {
+    const res = await fetch(`${API_BASE_URL}/adminLogin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

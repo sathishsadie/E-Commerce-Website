@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../api';
 
 const DeleteProduct = () => {
     const navigate = useNavigate(); // Replace useHistory with useNavigate
@@ -7,7 +8,7 @@ const DeleteProduct = () => {
 
     const deleteProduct = async (uid) => {
         try {
-            const res = await fetch('/deleteProduct', {
+            const res = await fetch(`${API_BASE_URL}/deleteProduct`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
